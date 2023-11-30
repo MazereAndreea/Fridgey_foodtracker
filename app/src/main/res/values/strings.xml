@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fridgey</string>
+    <string-array name="alimente">
+        <item>rosii</item>
+        <item>castraveti proaspeti</item>
+    </string-array>
+</resources>
