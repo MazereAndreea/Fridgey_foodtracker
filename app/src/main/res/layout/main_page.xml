@@ -34,10 +34,8 @@
         android:id="@+id/listview"
         android:layout_width="409dp"
         android:layout_height="325dp"
-        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/searchview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

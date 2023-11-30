@@ -11,14 +11,25 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page)
 
-        val searchview = findViewById<SearchView>(R.id.searchview);
-        val listview = findViewById<ListView>(R.id.listview);
+        val searchview = findViewById<SearchView>(R.id.searchview)
+        val listview = findViewById<ListView>(R.id.listview)
 
-        var alimente = arrayOf("@string/alimente")
+        val alimente = arrayOf("rosii", "ceapa", "mure")
         val arrayAdapter: ArrayAdapter<*>
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, alimente)
         listview.adapter = arrayAdapter
 
+        searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(s: String): Boolean {
+                arrayAdapter.filter.filter(s)
+                listview.adapter = arrayAdapter
+                return true
+            }
 
+            override fun onQueryTextChange(s: String): Boolean {
+                arrayAdapter.filter.filter(s)
+                return false
+            }
+        })
     }
 }
