@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.SearchView
+import com.android.volley.Request
+import okhttp3.OkHttpClient
 
 class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,5 +33,17 @@ class MainActivity : Activity() {
                 return false
             }
         })
+
+        // below I'm still working on it.
+        val client = OkHttpClient()
+
+        val request = Request.Builder()
+            .url("https://food-nutrition-information.p.rapidapi.com/foods/search?query=cheese&pageSize=1&pageNumber=1&brandOwner=Kar%20Nut%20Products%20Company")
+            .get()
+            .addHeader("X-RapidAPI-Key", "a9ef7f104fmsh25f987557455206p11dd40jsnd44f8878aca9")
+            .addHeader("X-RapidAPI-Host", "food-nutrition-information.p.rapidapi.com")
+            .build()
+
+        val response = client.newCall(request).execute()
     }
 }
