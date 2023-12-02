@@ -36,7 +36,6 @@ class MainActivity : Activity() {
 
         // below I'm still working on it.
         val client = OkHttpClient()
-
         val request = Request.Builder()
             .url("https://food-nutrition-information.p.rapidapi.com/foods/search?query=cheese&pageSize=1&pageNumber=1&brandOwner=Kar%20Nut%20Products%20Company")
             .get()
@@ -44,6 +43,6 @@ class MainActivity : Activity() {
             .addHeader("X-RapidAPI-Host", "food-nutrition-information.p.rapidapi.com")
             .build()
 
-        val response = client.newCall(request).execute()
+
     }
 }
