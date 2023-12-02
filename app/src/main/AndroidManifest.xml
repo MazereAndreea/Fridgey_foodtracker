@@ -21,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Location"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCATION_OF_FOOD" />
+            </intent-filter>
+        </activity>
 
 
     </application>
