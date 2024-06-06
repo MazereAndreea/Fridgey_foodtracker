@@ -1,5 +1,6 @@
 package com.example.fridgey
 
+import Constants
 import android.app.Activity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -7,6 +8,7 @@ import android.widget.ListView
 import android.widget.SearchView
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import retrofit2.Retrofit
 
 class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +36,9 @@ class MainActivity : Activity() {
             }
         })
 
+        if(Constants.isNetworkAvailable(this)){
+           val retrofit : Retrofit = Retrofit.Builder()
+        }
         // below I'm still working on it.
         val client = OkHttpClient()
         val request = Request.Builder()
@@ -42,7 +47,5 @@ class MainActivity : Activity() {
             .addHeader("X-RapidAPI-Key", "a9ef7f104fmsh25f987557455206p11dd40jsnd44f8878aca9")
             .addHeader("X-RapidAPI-Host", "food-nutrition-information.p.rapidapi.com")
             .build()
-
-
     }
 }
