@@ -1,46 +1,26 @@
 package com.example.fridgey
 
+import composables.SimpleDockedSearchBar
 import Constants
-import android.app.Activity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.SearchView
+import androidx.activity.ComponentActivity
 import com.example.fridgey.models.Food
-import com.example.fridgey.models.FoodListResponse
-import okhttp3.OkHttpClient
-import okhttp3.Request
+import androidx.activity.compose.setContent
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : Activity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_page)
-
-        val searchview = findViewById<SearchView>(R.id.searchview)
-        val listview = findViewById<ListView>(R.id.listview)
-
-        val alimente = arrayOf("rosii", "ceapa", "mure")
-        val arrayAdapter: ArrayAdapter<*>
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, alimente)
-        listview.adapter = arrayAdapter
-
-        searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(s: String): Boolean {
-                arrayAdapter.filter.filter(s)
-                listview.adapter = arrayAdapter
-                return true
-            }
-
-            override fun onQueryTextChange(s: String): Boolean {
-                arrayAdapter.filter.filter(s)
-                return false
-            }
-        })
+        setContent {
+            SimpleDockedSearchBar()
+        }
 
         //function to get database of foods from edamam api
         fun getFoodList(label: String) {
@@ -61,20 +41,22 @@ class MainActivity : Activity() {
                     override fun onResponse(call: Call<Food>, response: Response<Food>) {
                         if(response.isSuccessful){
                             val foodList = response.body()
+                            foodList?.let {
+
+                            }
                         }
                         else{
 
                         }
                     }
-
                     override fun onFailure(call: Call<Food>, t: Throwable) {
                         TODO("Not yet implemented")
                     }
-
                 })
-
             }
         }
+
+
         // below I'm still working on it.
 //        val client = OkHttpClient()
 //        val request = Request.Builder()
@@ -84,4 +66,13 @@ class MainActivity : Activity() {
 //            .addHeader("X-RapidAPI-Host", "food-nutrition-information.p.rapidapi.com")
 //            .build()
     }
+    @Composable
+    fun SimpleDockedSearchBar() {
+        var text by remember { mutableStateOf("") }
+        var active by remember { mutableStateOf(false) }
+
+        Text("Lool")
+    }
+
+
 }
