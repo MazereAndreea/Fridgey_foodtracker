@@ -9,6 +9,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import composables.MainScreen
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SimpleDockedSearchBar()
+            MainScreen()
         }
 
         //function to get database of foods from edamam api
@@ -41,12 +42,13 @@ class MainActivity : ComponentActivity() {
                     override fun onResponse(call: Call<Food>, response: Response<Food>) {
                         if(response.isSuccessful){
                             val foodList = response.body()
-                            foodList?.let {
-
+                            //function to use in other activites if you need the foodlist
+                            fun getFoodList(): Food? {
+                                return intent.get
                             }
                         }
                         else{
-
+                            print("Calling the API failed")
                         }
                     }
                     override fun onFailure(call: Call<Food>, t: Throwable) {
@@ -66,13 +68,5 @@ class MainActivity : ComponentActivity() {
 //            .addHeader("X-RapidAPI-Host", "food-nutrition-information.p.rapidapi.com")
 //            .build()
     }
-    @Composable
-    fun SimpleDockedSearchBar() {
-        var text by remember { mutableStateOf("") }
-        var active by remember { mutableStateOf(false) }
-
-        Text("Lool")
-    }
-
 
 }
