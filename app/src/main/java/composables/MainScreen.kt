@@ -1,61 +1,55 @@
 package composables
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
+import android.annotation.SuppressLint
+import android.content.Intent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.MoreVert
-import androidx.compose.material.icons.rounded.Search
-import androidx.compose.material.icons.rounded.Star
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.isTraversalGroup
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.zIndex
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SimpleDockedSearchBar(foodList: String) {
-    var text by remember { mutableStateOf("") }
-    var active by remember { mutableStateOf(false) }
-
-    Scaffold (
-        topBar = (
-                {
-                    SearchBar(
-                        modifier = Modifier.fillMaxWidth(),
-                        query = text,
-                        onQueryChange = { text = it },
-                        onSearch = { active = false },
-                        active = active,
-                        onActiveChange = { active = it }
-                    ) {
-                        LazyColumn {
-                            items(foodList) { food_item -> Text(
-                                text = food_item,
-                                modifier = Modifier.padding(
-                                    start = 8.dp,
-                                    top = 4.dp,
-                                    end = 8.dp,
-                                    bottom = 4.dp)
-                            )
-
-                            }
-                        }
+fun MainScreen() {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title={
+                    Text(text = "Welcome to Fridgey") },
+                navigationIcon = {
+                    IconButton(onClick = {}) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "backIcon")
                     }
-                })
-    ) { paddingValues ->
-        // You can put additional content here that goes below the SearchBar
-        LazyColumn(
-            contentPadding = paddingValues,
-            modifier = Modifier.fillMaxSize()
-        ) {
+                }
+            )},
+        content = {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Button(onClick = {
 
+                }) {
+                        Text(text = "Enter groceries")
+                }
+                Button(onClick = {
+                    val intent = Intent(context, SearchBar::class.java)
+                    context.startActivity(intent)
+                }) {
+                    Text(text = "Modify groceries")
+                }
+                Button(onClick = {  }) {
+                    Text(text = "Settings")
+                }
+            }
         }
-    }
+    )
 }
