@@ -17,3 +17,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea/uiDesigner.xml
+/qodana.yaml
