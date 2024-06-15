@@ -10,7 +10,7 @@ object Constants {
 
     const val APP_ID : String = "c1ace1d8"
     const val APP_KEY : String = "272989d44adff8a25f859a1072672db9"
-    const val BASE_URL : String = "https://api.edamam.com"
+    const val BASE_URL : String = "api/food-database/v2/parser"
 
     // TODO (STEP 3: Add a function to check the network connection is available or not.)
     fun isNetworkAvailable(context: Context): Boolean {
