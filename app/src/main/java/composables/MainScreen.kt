@@ -12,7 +12,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
+import androidx.core.content.ContextCompat.startActivity
+import com.example.fridgey.SearchBarActivity
+
+//import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -28,28 +31,29 @@ fun MainScreen() {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, "backIcon")
                     }
                 }
-            )},
-        content = {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ){
-                Button(onClick = {
-
-                }) {
-                        Text(text = "Enter groceries")
-                }
-                Button(onClick = {
-                    val intent = Intent(context, SearchBar::class.java)
-                    context.startActivity(intent)
-                }) {
-                    Text(text = "Modify groceries")
-                }
-                Button(onClick = {  }) {
-                    Text(text = "Settings")
-                }
+            )}
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Button(onClick = {
+                //A problem for tomorrow -> navigate between screens
+//                val navigate = Intent(context, SearchBarActivity::class.java)
+//                launcher.launch(navigate)
+            }) {
+                Text(text = "Enter groceries")
+            }
+            Button(onClick = {
+//                    val intent = Intent(context, SearchBar::class.java)
+//                    context.startActivity(intent)
+            }) {
+                Text(text = "Modify groceries")
+            }
+            Button(onClick = { }) {
+                Text(text = "Settings")
             }
         }
-    )
+    }
 }
