@@ -12,6 +12,7 @@ import com.example.fridgey.models.Food
 fun SimpleDockedSearchBar(foodList: Food) {
     var text by remember { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
+    val listToSeeFunctionality = mutableListOf<String>("Cartof dulce", "ceapa", "masline", "magiun", "mamaliga")
 
     Scaffold (
         topBar = (
@@ -25,12 +26,15 @@ fun SimpleDockedSearchBar(foodList: Food) {
                         onActiveChange = { active = it }
                     ) {
                         LazyColumn {
-                              foodList.label.forEach { label->
-                                  val foodLabel = foodList.label
+                                for (item in listToSeeFunctionality) {
+                                    print(item)
+                                }
+//                              foodList.label.forEach { label->
+//                                  val foodLabel = foodList.label
                             }
                         }
                     }
-                })
+                )
     ) { paddingValues ->
         // You can put additional content here that goes below the SearchBar
         LazyColumn(
