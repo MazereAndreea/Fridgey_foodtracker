@@ -43,9 +43,9 @@ class MainActivity : ComponentActivity() {
                         if(response.isSuccessful){
                             val foodList = response.body()
                             //function to use in other activites if you need the foodlist
-                            fun getFoodList(): Food? {
-                                return intent.get
-                            }
+//                            fun getFoodList(): Food? {
+//
+//                            }
                         }
                         else{
                             print("Calling the API failed")
