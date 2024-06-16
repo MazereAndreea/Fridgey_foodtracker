@@ -28,6 +28,7 @@ object Constants {
             }
         } else {
             // Returns details about the currently active default data network.
+            @Suppress("DEPRECATION")
             val networkInfo = connectivityManager.activeNetworkInfo
             return networkInfo != null && networkInfo.isConnectedOrConnecting
         }

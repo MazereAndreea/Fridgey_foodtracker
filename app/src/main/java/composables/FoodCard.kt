@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,8 +29,11 @@ fun FoodCard(name: String, description: String?, image: Int) {
             .fillMaxWidth()
             .wrapContentHeight(),
         shape = MaterialTheme.shapes.medium,
-        elevation = 5.dp,
-        backgroundColor = MaterialTheme.colors.surface
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            contentColor = MaterialTheme.colorScheme.onSurface
+        )
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -45,14 +48,13 @@ fun FoodCard(name: String, description: String?, image: Int) {
             Column(Modifier.padding(8.dp)) {
                 Text(
                     text = name,
-                    style = MaterialTheme.typography.h2,
+                    style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.padding(bottom = 8.dp).fillMaxWidth(),
-                    color = MaterialTheme.colors.onSurface,
                 )
                 if (description != null) {
                     Text(
                         text = description,
-                        style = MaterialTheme.typography.body2,
+                        style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.padding(bottom = 4.dp)
                     )
                 }
