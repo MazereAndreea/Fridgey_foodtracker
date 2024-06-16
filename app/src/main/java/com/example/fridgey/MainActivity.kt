@@ -21,6 +21,57 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MainScreen()
+/*
+            val foodList = listOf(
+                Food(
+                    category = "Fruit",
+                    categoryLabel = "Fresh Fruit",
+                    foodId = 1,
+                    image = "apple_test_url",
+                    knownAs = "Apple",
+                    label = "Apple",
+                    nutrients = Nutrients(
+                        CHOCDF = 14.0,
+                        ENERC_KCAL = 52.0,
+                        FAT = 0.2,
+                        FIBTG = 2.4,
+                        PROCNT = 0.3
+                    )
+                ),
+                Food(
+                    category = "Fruit",
+                    categoryLabel = "Fresh Fruit",
+                    foodId = 2,
+                    image = "banana_test_url",
+                    knownAs = "Banana",
+                    label = "Banana",
+                    nutrients = Nutrients(
+                        CHOCDF = 27.0,
+                        ENERC_KCAL = 96.0,
+                        FAT = 0.3,
+                        FIBTG = 2.6,
+                        PROCNT = 1.3
+                    )
+                ),
+                Food(
+                    category = "Fruit",
+                    categoryLabel = "Fresh Fruit",
+                    foodId = 3,
+                    image = "cherry_test_url",
+                    knownAs = "Cherry",
+                    label = "Cherry",
+                    nutrients = Nutrients(
+                        CHOCDF = 12.0,
+                        ENERC_KCAL = 50.0,
+                        FAT = 0.3,
+                        FIBTG = 1.6,
+                        PROCNT = 1.0
+                    )
+                )
+            )
+
+            SimpleDockedSearchBar(foodList)
+*/
         }
 
         //function to get database of foods from edamam api
