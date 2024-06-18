@@ -12,8 +12,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat.startActivity
 import com.example.fridgey.SearchBarActivity
+import com.example.fridgey.AppSettingsActivity
 /*
 import androidx.compose.runtime.*
 
@@ -35,6 +37,7 @@ import com.example.fridgey.models.Nutrients
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
+    val context = LocalContext.current
     Scaffold(
         topBar = {
             TopAppBar(
@@ -75,20 +78,28 @@ fun MainScreen() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Button(onClick = {
+            Button(
+                onClick = {
                 //A problem for tomorrow -> navigate between screens
 //                val navigate = Intent(context, SearchBarActivity::class.java)
 //                launcher.launch(navigate)
-            }) {
+                }
+            ) {
                 Text(text = "Enter groceries")
             }
-            Button(onClick = {
+            Button(
+                onClick = {
 //                    val intent = Intent(context, SearchBar::class.java)
 //                    context.startActivity(intent)
-            }) {
+                }
+            ) {
                 Text(text = "Modify groceries")
             }
-            Button(onClick = { }) {
+            Button(
+                onClick = {
+                    val intent = Intent(context, AppSettingsActivity::class.java)
+                    context.startActivity(intent)
+                }) {
                 Text(text = "Settings")
             }
         }
