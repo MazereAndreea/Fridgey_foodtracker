@@ -1,15 +1,16 @@
 package com.example.fridgey
 
-import composables.SimpleDockedSearchBar
 import Constants
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.example.fridgey.models.Food
 import androidx.activity.compose.setContent
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import composables.MainScreen
+import composables.SimpleDockedSearchBar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,58 +21,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MainScreen()
-/*
-            val foodList = listOf(
-                Food(
-                    category = "Fruit",
-                    categoryLabel = "Fresh Fruit",
-                    foodId = 1,
-                    image = "apple_test_url",
-                    knownAs = "Apple",
-                    label = "Apple",
-                    nutrients = Nutrients(
-                        CHOCDF = 14.0,
-                        ENERC_KCAL = 52.0,
-                        FAT = 0.2,
-                        FIBTG = 2.4,
-                        PROCNT = 0.3
-                    )
-                ),
-                Food(
-                    category = "Fruit",
-                    categoryLabel = "Fresh Fruit",
-                    foodId = 2,
-                    image = "banana_test_url",
-                    knownAs = "Banana",
-                    label = "Banana",
-                    nutrients = Nutrients(
-                        CHOCDF = 27.0,
-                        ENERC_KCAL = 96.0,
-                        FAT = 0.3,
-                        FIBTG = 2.6,
-                        PROCNT = 1.3
-                    )
-                ),
-                Food(
-                    category = "Fruit",
-                    categoryLabel = "Fresh Fruit",
-                    foodId = 3,
-                    image = "cherry_test_url",
-                    knownAs = "Cherry",
-                    label = "Cherry",
-                    nutrients = Nutrients(
-                        CHOCDF = 12.0,
-                        ENERC_KCAL = 50.0,
-                        FAT = 0.3,
-                        FIBTG = 1.6,
-                        PROCNT = 1.0
-                    )
-                )
-            )
-
-            SimpleDockedSearchBar(foodList)
-*/
+            Navigation()
         }
 
         //function to get database of foods from edamam api
@@ -120,4 +70,21 @@ class MainActivity : ComponentActivity() {
 //            .build()
     }
 
+}
+
+@Composable
+fun Navigation(){
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "mainscreen") {
+        composable("mainscreen"){
+            MainScreen{
+                navController.navigate("searchbarscreen")
+            }
+        }
+        composable("searchbarscreen"){
+            SimpleDockedSearchBar{
+                navController.navigate("mainscreen")
+            }
+        }
+    }
 }

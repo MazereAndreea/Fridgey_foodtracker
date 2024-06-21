@@ -13,7 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.NavHostController
 import com.example.fridgey.SearchBarActivity
 import com.example.fridgey.AppSettingsActivity
 /*
@@ -36,7 +38,7 @@ import com.example.fridgey.models.Nutrients
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(navigateToSearchScreen: () -> Unit) {
     val context = LocalContext.current
     Scaffold(
         topBar = {
@@ -97,11 +99,10 @@ fun MainScreen() {
             }
             Button(
                 onClick = {
-                    val intent = Intent(context, AppSettingsActivity::class.java)
-                    context.startActivity(intent)
+                   navigateToSearchScreen()
                 }) {
                 Text(text = "Settings")
-            }
+                }
         }
     }
 }
