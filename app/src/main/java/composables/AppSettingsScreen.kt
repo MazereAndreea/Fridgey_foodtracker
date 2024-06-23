@@ -14,7 +14,7 @@ import com.example.fridgey.models.AppSettings
 @Composable
 fun SettingsScreen(settingsViewModel: AppSettings = viewModel()) {
     val isDarkTheme = settingsViewModel.isDarkTheme.collectAsState()
-
+ 
     Scaffold(
         topBar = {
             TopAppBar(
