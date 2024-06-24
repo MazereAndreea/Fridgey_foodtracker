@@ -6,13 +6,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.example.fridgey.models.AppSettings
+import composables.NavigationRoutes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(settingsViewModel: AppSettings = viewModel()) {
+fun SettingsScreen(settingsViewModel: AppSettings = viewModel(),navController: NavHostController) {
     val isDarkTheme = settingsViewModel.isDarkTheme.collectAsState()
 
     Scaffold(
@@ -22,6 +25,13 @@ fun SettingsScreen(settingsViewModel: AppSettings = viewModel()) {
                     Text("App Settings")
                 }
             )
+        },
+        bottomBar = {
+            Button(
+                onClick = { navController.navigate(route = NavigationRoutes.main_screen.route) }
+            ) {
+                Text(text = "Go back to Main Screen")
+            }
         }
     ) { paddingValues ->
         Column(
