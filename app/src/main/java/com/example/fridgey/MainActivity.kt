@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
         fun getFoodList(label: String) {
             if (Constants.isNetworkAvailable(this)) {
                 val retrofit: Retrofit = Retrofit.Builder()
-                    .baseUrl(Constants.BASE_URL)
+                    .baseUrl(Constants.BASE_URL_PARSER)
                     .addConverterFactory(GsonConverterFactory.create()) //convert the data in json format
                     .build()
 

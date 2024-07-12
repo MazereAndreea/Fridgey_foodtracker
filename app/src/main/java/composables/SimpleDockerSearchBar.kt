@@ -17,8 +17,17 @@ fun SimpleDockedSearchBar(navigateToMainScreen : () -> Unit, /*foodList: Mutable
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(text = "Simple Scaffold Example") }
+            SearchBar(
+                query = "Enter something",
+                onQueryChange = { text = it },
+                colors = SearchBarDefaults.colors(
+                    containerColor = androidx.compose.ui.graphics.Color.White,
+                    //focusedContainerColor = androidx.compose.ui.graphics.Color.White
+                ),
+                modifier = Modifier
+                    .onActiveChange()
+                    .padding(24.dp)
+                    .border(BorderStroke(2.dp, androidx.compose.ui.graphics.Color.Cyan), shape = CircleShape)
             )
         },
 

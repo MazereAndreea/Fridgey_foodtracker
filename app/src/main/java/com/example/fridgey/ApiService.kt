@@ -7,7 +7,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET(Constants.BASE_URL)
+    @GET(Constants.BASE_URL_PARSER)
     fun getFood(
         @Query("label") label : String,
         @Query("appid") appid : String?
