@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
-import com.example.fridgey.models.AppSettings
+import com.example.fridgey.models.view.AppSettings
 import com.example.fridgey.ui.theme.*
 
 class AppSettingsActivity : ComponentActivity() {

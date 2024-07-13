@@ -10,7 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.fridgey.models.AppSettings
+import com.example.fridgey.models.view.AppSettings
 import composables.NavigationRoutes
 
 @OptIn(ExperimentalMaterial3Api::class)
