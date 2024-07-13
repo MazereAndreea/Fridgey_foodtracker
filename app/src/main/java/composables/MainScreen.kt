@@ -1,23 +1,18 @@
 package composables
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavHostController
-import com.example.fridgey.SearchBarActivity
-import com.example.fridgey.AppSettingsActivity
+
 /*
 import androidx.compose.runtime.*
 
@@ -38,7 +33,7 @@ import com.example.fridgey.models.Nutrients
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(navigateToSearchScreen: () -> Unit) {
+fun MainScreen(navController: NavHostController) {
     val context = LocalContext.current
     Scaffold(
         topBar = {
@@ -82,6 +77,7 @@ fun MainScreen(navigateToSearchScreen: () -> Unit) {
         ) {
             Button(
                 onClick = {
+                   navController.navigate(route = NavigationRoutes.groceries_list.route)
                 //A problem for tomorrow -> navigate between screens
 //                val navigate = Intent(context, SearchBarActivity::class.java)
 //                launcher.launch(navigate)
@@ -99,7 +95,7 @@ fun MainScreen(navigateToSearchScreen: () -> Unit) {
             }
             Button(
                 onClick = {
-                   navigateToSearchScreen()
+                   navController.navigate(route = NavigationRoutes.settings.route)
                 }) {
                 Text(text = "Settings")
                 }

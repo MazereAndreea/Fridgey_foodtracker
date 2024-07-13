@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import composables.AppNavHost
 import composables.MainScreen
 import composables.SimpleDockedSearchBar
 import retrofit2.Call
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Navigation()
+            AppNavHost()
         }
 
         //function to get database of foods from edamam api
@@ -58,33 +59,6 @@ class MainActivity : ComponentActivity() {
                 })
             }
         }
-
-
-        // below I'm still working on it.
-//        val client = OkHttpClient()
-//        val request = Request.Builder()
-//            .url("https://food-nutrition-information.p.rapidapi.com/foods/search?query=cheese&pageSize=1&pageNumber=1&brandOwner=Kar%20Nut%20Products%20Company")
-//            .get()
-//            .addHeader("X-RapidAPI-Key", "a9ef7f104fmsh25f987557455206p11dd40jsnd44f8878aca9")
-//            .addHeader("X-RapidAPI-Host", "food-nutrition-information.p.rapidapi.com")
-//            .build()
-    }
-
-}
-
-@Composable
-fun Navigation(){
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "mainscreen") {
-        composable("mainscreen"){
-            MainScreen{
-                navController.navigate("searchbarscreen")
-            }
-        }
-        composable("searchbarscreen"){
-            SimpleDockedSearchBar{
-                navController.navigate("mainscreen")
-            }
-        }
     }
 }
+
