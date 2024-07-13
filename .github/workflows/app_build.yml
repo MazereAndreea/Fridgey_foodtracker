@@ -29,7 +29,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run : ./gradlew build -Xmx4096m
+        run : ./gradlew build
 
       - name: Upload Fridgey Release
         uses: actions/upload-artifact@v3.1.3
