@@ -23,7 +23,6 @@ android {
             applicationIdSuffix = ".debug"
         }
         release {
-            manifestPlaceholders += mapOf()
             manifestPlaceholders["app_name"] = "@string/app_name_release"
             isMinifyEnabled = false
             proguardFiles(
