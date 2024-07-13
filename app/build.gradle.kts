@@ -18,12 +18,19 @@ android {
     }
 
     buildTypes {
+        debug {
+            manifestPlaceholders["app_name"] = "@string/app_name_debug"
+            applicationIdSuffix = ".debug"
+        }
         release {
+            manifestPlaceholders += mapOf()
+            manifestPlaceholders["app_name"] = "@string/app_name_release"
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -34,11 +41,18 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        viewBinding =  true;
+        viewBinding =  true
         compose = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.2"
+    }
+    applicationVariants.all {
+        outputs.all {
+            val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+            val newName = "Fridgey_${buildType.name}.apk"
+            output.outputFileName = newName
+        }
     }
 }
 
