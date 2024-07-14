@@ -1,16 +1,26 @@
 package com.example.fridgey
 import Constants
-import com.example.fridgey.models.Food
+import com.example.fridgey.models.FoodResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiServiceParser {
-    @GET(Constants.BASE_URL_PARSER)
+    @GET("parser")
     fun getFood(
         @Query("app_id") appid : String,
         @Query("app_key") label : String,
         @Query("ingr") ingr : String
-    ) : Call<Food>
+    ) : Call<FoodResponse>
+}
+
+interface ApiServiceAutoComplete {
+    @GET("auto-complete")
+    fun getAutoComplete(
+        @Query("app_id") appid : String,
+        @Query("app_key") label : String,
+        @Query("q") query : String,
+        @Query("limit") limit : Int
+    ) : Call<List<String>>
 }
