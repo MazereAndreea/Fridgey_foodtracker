@@ -10,8 +10,8 @@ object Constants {
 
     const val APP_ID : String = "c1ace1d8"
     const val APP_KEY : String = "272989d44adff8a25f859a1072672db9"
-    const val BASE_URL_PARSER : String = "https://api.edamam.com/api/food-database/v2/parser"
-    const val BASE_URL_AUTOCOM : String = "https://api.edamam.com/auto-complete"
+    const val BASE_URL_PARSER : String = "https://api.edamam.com/api/food-database/v2/parser/"
+    const val BASE_URL_AUTOCOM : String = "https://api.edamam.com/auto-complete/"
 
     // TODO (STEP 3: Add a function to check the network connection is available or not.)
     fun isNetworkAvailable(context: Context): Boolean {
@@ -31,6 +31,7 @@ object Constants {
             // Returns details about the currently active default data network.
             @Suppress("DEPRECATION")
             val networkInfo = connectivityManager.activeNetworkInfo
+            @Suppress("DEPRECATION")
             return networkInfo != null && networkInfo.isConnectedOrConnecting
         }
     }
