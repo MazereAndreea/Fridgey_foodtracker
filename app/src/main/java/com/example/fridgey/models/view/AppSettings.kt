@@ -1,4 +1,4 @@
-package com.example.fridgey.models
+package com.example.fridgey.models.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

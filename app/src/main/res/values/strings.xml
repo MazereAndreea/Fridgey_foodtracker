@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Fridgey</string>
+    <string name="app_name_release">Fridgey FoodTracker</string>
+    <string name="app_name_debug">Fridgey FoodTracker [Debug]</string>
 </resources>

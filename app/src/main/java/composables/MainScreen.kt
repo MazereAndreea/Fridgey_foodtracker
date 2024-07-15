@@ -43,29 +43,6 @@ fun MainScreen(navController: NavHostController) {
                 navigationIcon = {
                     IconButton(onClick = {}) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, "backIcon")
-/*fun SimpleDockedSearchBar(foodList: List<Food>) {
-    var text by remember { mutableStateOf("") }
-    var active by remember { mutableStateOf(false) }
-
-    Scaffold (
-        topBar = (
-                {
-                    SearchBar(
-                        modifier = Modifier.fillMaxWidth(),
-                        query = text,
-                        onQueryChange = { text = it },
-                        onSearch = { active = false },
-                        active = active,
-                        onActiveChange = { active = it }
-                    ) {
-                        LazyColumn (
-                            contentPadding = PaddingValues(16.dp)
-                        )
-                        {
-                            items(foodList) { food ->
-                                FoodCard(food.knownAs, food.category, food.image)
-                            }
-                        }*/
                     }
                 }
             )}

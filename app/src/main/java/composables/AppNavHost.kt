@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.fridgey.SettingsScreen
-import com.example.fridgey.models.AppSettings
+import com.example.fridgey.models.view.AppSettings
 
 @Composable
 fun AppNavHost(modifier: Modifier = Modifier){
