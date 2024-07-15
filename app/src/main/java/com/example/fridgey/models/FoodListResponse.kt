@@ -1,8 +1,10 @@
 package com.example.fridgey.models
 
-data class FoodListResponse(
-    val _links: Links,
-    val hints: List<Hint>,
-    val parsed: List<Any>,
-    val text: String
+data class ParsedFood(
+    val food: Food
+)
+
+data class FoodResponse(
+    val text: String,
+    val parsed: List<ParsedFood>
 )

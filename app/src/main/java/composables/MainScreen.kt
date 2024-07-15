@@ -8,10 +8,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
+
 
 /*
 import androidx.compose.runtime.*
@@ -64,8 +66,7 @@ fun MainScreen(navController: NavHostController) {
             }
             Button(
                 onClick = {
-//                    val intent = Intent(context, SearchBar::class.java)
-//                    context.startActivity(intent)
+                    navController.navigate(route = NavigationRoutes.modify_groceries.route)
                 }
             ) {
                 Text(text = "Modify groceries")

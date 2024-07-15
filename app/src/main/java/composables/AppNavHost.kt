@@ -15,6 +15,9 @@ fun AppNavHost(modifier: Modifier = Modifier){
         composable(NavigationRoutes.groceries_list.route){
             SimpleDockedSearchBar(navController)
         }
+        composable(NavigationRoutes.modify_groceries.route){
+            ModifyGroceriesScreen(navController)
+        }
         composable(NavigationRoutes.settings.route){
             SettingsScreen(AppSettings(), navController)
         }
