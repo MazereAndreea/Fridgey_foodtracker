@@ -1,14 +1,14 @@
-package com.example.fridgey
+package com.example.fridgey.ApiHelper
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    fun create(baseUrl: String): ApiServiceParser {
+    inline fun <reified T> create(baseUrl: String): T {
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        return retrofit.create(ApiServiceParser::class.java)
+        return retrofit.create(T::class.java)
     }
 }
