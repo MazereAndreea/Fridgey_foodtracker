@@ -20,12 +20,11 @@ fun ModifyGroceriesScreen(navController: NavHostController) {
     var apiResponse by remember { mutableStateOf("") }
     var apiResponded by remember { mutableStateOf(false) }
 
-    FridgeyScaffold(navController = navController, title = "Grocery List", true) { paddingValues ->
+    FridgeyScaffold(navController = navController, title = "Grocery List", true) {
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
                 .padding(16.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
