@@ -12,7 +12,7 @@ import com.example.fridgey.models.FoodResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import Constants.isNetworkAvailable
+import com.example.fridgey.utils.isNetworkAvailable
 
 @Composable
 fun getFoodList(ingr: String, callback: (String) -> Unit) {

@@ -20,6 +20,7 @@ import androidx.navigation.NavHostController
 import com.example.fridgey.ApiHelper.getFoodAutoCompletition
 import com.example.fridgey.ApiHelper.getFoodList
 import com.example.fridgey.ApiHelper.showDialog
+import composables.layout.FridgeyScaffold
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,30 +35,15 @@ fun SimpleDockedSearchBar(navController: NavHostController) {
     var isClicked by remember { mutableStateOf(false) }
     var apiFoodResponded by remember { mutableStateOf(false) }
 
-    Scaffold(
-        modifier = Modifier.padding(horizontal = 10.dp),
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = "Search for desired item")
-                }
-            )
-        },
-        bottomBar = {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 350.dp),
-                contentAlignment = Alignment.Center,
-            ) {
-                Button(
-                    onClick = { navController.navigate(route = NavigationRoutes.main_screen.route) }
-                ) {
-                    Text(text = "Back to Main Page")
-                }
-            }
-        }
-    ) {
+    FridgeyScaffold(navController = navController, title = "Search your item", true) {
+        paddingValues ->
+
+        Text(
+            modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
+            textAlign = TextAlign.Center,
+            text = "Welcome to SearchBarActivity"
+        )
+        
         Column(
             modifier = Modifier.padding(vertical = 65.dp),
             verticalArrangement = Arrangement.Top,

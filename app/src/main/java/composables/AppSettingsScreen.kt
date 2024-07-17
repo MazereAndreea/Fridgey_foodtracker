@@ -12,28 +12,15 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.fridgey.models.view.AppSettings
 import composables.NavigationRoutes
+import composables.layout.FridgeyScaffold
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(settingsViewModel: AppSettings = viewModel(),navController: NavHostController) {
-    val isDarkTheme = settingsViewModel.isDarkTheme.collectAsState()
- 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text("App Settings")
-                }
-            )
-        },
-        bottomBar = {
-            Button(
-                onClick = { navController.navigate(route = NavigationRoutes.main_screen.route) }
-            ) {
-                Text(text = "Go back to Main Screen")
-            }
-        }
-    ) { paddingValues ->
+fun SettingsScreen(navController: NavHostController, settingsViewModel: AppSettings = viewModel()) {
+    FridgeyScaffold(navController = navController, title = "App Settings", false) {
+        paddingValues ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -47,9 +34,9 @@ fun SettingsScreen(settingsViewModel: AppSettings = viewModel(),navController: N
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "Dark Theme")
+                Text(text = if (settingsViewModel.isDarkTheme.collectAsState().value) "Dark Theme: On" else "Dark Theme: Off")
                 Switch(
-                    checked = isDarkTheme.value,
+                    checked = settingsViewModel.isDarkTheme.collectAsState().value,
                     onCheckedChange = { settingsViewModel.toggleTheme() }
                 )
             }

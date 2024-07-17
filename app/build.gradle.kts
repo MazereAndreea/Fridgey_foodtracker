@@ -12,7 +12,7 @@ android {
         minSdk = 21
         targetSdk = 34
         versionCode = 1
-        versionName = "1.0.1"
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -77,4 +77,5 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.3")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.3")
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
 }

@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.fridgey.ApiHelper.getFoodList
 import com.example.fridgey.ApiHelper.showDialog
+import composables.layout.FridgeyScaffold
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -19,22 +20,8 @@ fun ModifyGroceriesScreen(navController: NavHostController) {
     var apiResponse by remember { mutableStateOf("") }
     var apiResponded by remember { mutableStateOf(false) }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text("Grocery List")
-                }
-            )
-        },
-        bottomBar = {
-            Button(
-                onClick = { navController.navigate(route = NavigationRoutes.main_screen.route) }
-            ) {
-                Text(text = "Go back to Main Screen")
-            }
-        }
-    ) { paddingValues ->
+    FridgeyScaffold(navController = navController, title = "Grocery List", true) { paddingValues ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()

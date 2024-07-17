@@ -2,6 +2,7 @@ package composables
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -9,7 +10,7 @@ import com.example.fridgey.SettingsScreen
 import com.example.fridgey.models.view.AppSettings
 
 @Composable
-fun AppNavHost(modifier: Modifier = Modifier){
+fun AppNavHost(modifier: Modifier = Modifier, settingsViewModel: AppSettings = viewModel() ){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = NavigationRoutes.main_screen.route) {
         composable(NavigationRoutes.groceries_list.route){
@@ -19,7 +20,7 @@ fun AppNavHost(modifier: Modifier = Modifier){
             ModifyGroceriesScreen(navController)
         }
         composable(NavigationRoutes.settings.route){
-            SettingsScreen(AppSettings(), navController)
+            SettingsScreen(navController)
         }
         composable(NavigationRoutes.main_screen.route){
             MainScreen(navController)
