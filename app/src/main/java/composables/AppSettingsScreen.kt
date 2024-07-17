@@ -13,12 +13,10 @@ import androidx.navigation.NavHostController
 import com.example.fridgey.models.view.AppSettings
 import composables.NavigationRoutes
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(settingsViewModel: AppSettings = viewModel(),navController: NavHostController) {
-    val isDarkTheme = settingsViewModel.isDarkTheme.collectAsState()
- 
-    Scaffold(
+fun SettingsScreen(navController: NavHostController, settingsViewModel: AppSettings = viewModel()) {    Scaffold(
         topBar = {
             TopAppBar(
                 title = {
@@ -47,9 +45,9 @@ fun SettingsScreen(settingsViewModel: AppSettings = viewModel(),navController: N
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "Dark Theme")
+                Text(text = if (settingsViewModel.isDarkTheme.collectAsState().value) "Dark Theme: On" else "Dark Theme: Off")
                 Switch(
-                    checked = isDarkTheme.value,
+                    checked = settingsViewModel.isDarkTheme.collectAsState().value,
                     onCheckedChange = { settingsViewModel.toggleTheme() }
                 )
             }

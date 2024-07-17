@@ -1,9 +1,8 @@
 package com.example.fridgey
-import Constants
+
 import com.example.fridgey.models.FoodResponse
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiServiceParser {
