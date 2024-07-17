@@ -10,7 +10,7 @@ import com.example.fridgey.SettingsScreen
 import com.example.fridgey.models.view.AppSettings
 
 @Composable
-fun AppNavHost(modifier: Modifier = Modifier, settingsViewModel: AppSettings = viewModel() ){
+fun AppNavHost(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = NavigationRoutes.main_screen.route) {
         composable(NavigationRoutes.groceries_list.route){

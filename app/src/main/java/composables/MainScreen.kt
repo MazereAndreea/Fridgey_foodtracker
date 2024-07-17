@@ -37,9 +37,7 @@ import com.example.fridgey.models.Nutrients
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(navController: NavHostController) {
-    val context = LocalContext.current
     FridgeyScaffold(navController = navController, title = "Welcome to Fridgey", true) {
-        paddingValues ->
 
         Column(
             modifier = Modifier.fillMaxSize(),

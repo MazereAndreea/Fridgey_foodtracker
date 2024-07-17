@@ -6,8 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.ExperimentalMaterial3Api
 import composables.SimpleDockedSearchBar
 
-class SearchBarActivity(function: () -> Unit) : ComponentActivity() {
-    @OptIn(ExperimentalMaterial3Api::class)
+class SearchBarActivity() : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
