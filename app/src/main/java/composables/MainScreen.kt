@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
+import composables.layout.FridgeyScaffold
 
 
 /*
@@ -37,18 +38,9 @@ import com.example.fridgey.models.Nutrients
 @Composable
 fun MainScreen(navController: NavHostController) {
     val context = LocalContext.current
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title={
-                    Text(text = "Welcome to Fridgey") },
-                navigationIcon = {
-                    IconButton(onClick = {}) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "backIcon")
-                    }
-                }
-            )}
-    ) {
+    FridgeyScaffold(navController = navController, title = "Welcome to Fridgey", true) {
+        paddingValues ->
+
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,

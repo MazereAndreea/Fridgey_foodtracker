@@ -19,6 +19,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.font.FontWeight
+import composables.layout.FridgeyScaffold
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,12 +30,9 @@ fun SimpleDockedSearchBar(navController: NavHostController) {
     val searchHistory = remember { mutableStateListOf("") }
     val listToSeeFunctionality = mutableListOf<String>("Cartof dulce", "ceapa", "masline", "magiun", "mamaliga")
 
-    Scaffold(
-        modifier = Modifier.padding(horizontal = 10.dp),
-        bottomBar = {
-            Text(text = "Bottom Bar")
-        }
-    ) {
+    FridgeyScaffold(navController = navController, title = "Search your item", true) {
+        paddingValues ->
+
         Text(
             modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
             textAlign = TextAlign.Center,

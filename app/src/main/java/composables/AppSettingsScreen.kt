@@ -12,26 +12,15 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.fridgey.models.view.AppSettings
 import composables.NavigationRoutes
+import composables.layout.FridgeyScaffold
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(navController: NavHostController, settingsViewModel: AppSettings = viewModel()) {    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text("App Settings")
-                }
-            )
-        },
-        bottomBar = {
-            Button(
-                onClick = { navController.navigate(route = NavigationRoutes.main_screen.route) }
-            ) {
-                Text(text = "Go back to Main Screen")
-            }
-        }
-    ) { paddingValues ->
+fun SettingsScreen(navController: NavHostController, settingsViewModel: AppSettings = viewModel()) {
+    FridgeyScaffold(navController = navController, title = "App Settings", false) {
+        paddingValues ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
