@@ -1,4 +1,4 @@
-package com.example.fridgey
+package com.example.fridgey.ApiHelper
 
 import com.example.fridgey.models.FoodResponse
 import retrofit2.Call

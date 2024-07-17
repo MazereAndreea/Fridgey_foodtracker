@@ -8,8 +8,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.fridgey.getFoodList
-import com.example.fridgey.showDialog
+import com.example.fridgey.ApiHelper.getFoodList
+import com.example.fridgey.ApiHelper.showDialog
 import composables.layout.FridgeyScaffold
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -18,7 +18,6 @@ fun ModifyGroceriesScreen(navController: NavHostController) {
     var foodInput by remember { mutableStateOf("") }
     var isClicked by remember { mutableStateOf(false) }
     var apiResponse by remember { mutableStateOf("") }
-    var dialogMessage by remember { mutableStateOf("") }
     var apiResponded by remember { mutableStateOf(false) }
 
     FridgeyScaffold(navController = navController, title = "Grocery List", true) { paddingValues ->
