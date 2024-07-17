@@ -1,10 +1,5 @@
 package com.example.fridgey
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-
 // TODO (STEP 2: Create the activities package and utils package and add the MainActivity class to it and create the constant object in utils.)\
 // START
 object Constants {
