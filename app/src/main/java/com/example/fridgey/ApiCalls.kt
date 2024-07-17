@@ -13,6 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.example.fridgey.utils.isNetworkAvailable
+import com.example.fridgey.Constants
 
 @Composable
 fun getFoodList(ingr: String, callback: (String) -> Unit) {
@@ -48,7 +49,7 @@ fun getFoodList(ingr: String, callback: (String) -> Unit) {
             }
 
             override fun onFailure(p0: Call<FoodResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                //TODO("Not yet implemented")
                 dialogMessage = "API call failed: ${t.message}"
                 callback(dialogMessage)
 
@@ -86,7 +87,7 @@ fun getFoodAutoCompletition(query: String, limit: Int, callback: ((List<String>)
             }
 
             override fun onFailure(p0: Call<List<String>>, t: Throwable) {
-                TODO("Not yet implemented")
+                //TODO("Not yet implemented")
                 dialogMessage = "API call failed: ${t.message}"
                 callback(emptyList())
             }

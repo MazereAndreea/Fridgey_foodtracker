@@ -36,7 +36,6 @@ fun SimpleDockedSearchBar(navController: NavHostController) {
     var apiFoodResponded by remember { mutableStateOf(false) }
 
     FridgeyScaffold(navController = navController, title = "Search your item", true) {
-        paddingValues ->
 
         Text(
             modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
