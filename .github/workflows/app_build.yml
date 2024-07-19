@@ -25,6 +25,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Replace API secrets in properties file
+        run: |
+          sed -i 's/your_appid/${{ secrets.APP_ID }}/' api_secrets.properties
+          sed -i 's/your_apikey/${{ secrets.APP_KEY }}/' api_secrets.properties
+
       - name: Grant execute permissions for gradlew
         run: chmod +x gradlew
 
