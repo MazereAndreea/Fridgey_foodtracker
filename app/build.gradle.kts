@@ -1,3 +1,6 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -15,6 +18,16 @@ android {
         versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val keystoreFile = project.rootProject.file("api_secrets.properties")
+        val properties = Properties()
+        properties.load(keystoreFile.inputStream())
+
+        val apiApp = properties.getProperty("APP_ID") ?: ""
+        buildConfigField("String", "APP_ID", apiApp)
+
+        val apiKey = properties.getProperty("APP_KEY") ?: ""
+        buildConfigField("String", "APP_KEY", apiKey)
     }
 
     buildTypes {
@@ -42,6 +55,7 @@ android {
     buildFeatures {
         viewBinding =  true
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.2"
