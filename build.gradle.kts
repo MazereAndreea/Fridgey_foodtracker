@@ -6,13 +6,16 @@ plugins {
 
 val outputFile = File("$projectDir", "api_secrets.properties")
 
-outputFile.apply {
-    parentFile.mkdirs()
+if (outputFile.exists()) {
+    println("API Secrets file already exists in: ${outputFile.absolutePath}")
+} else {
+    outputFile.parentFile.mkdirs()
 
-    writeText("# Get your API Key and APP ID from here:\n" +
-            "# https://developer.edamam.com/food-database-api\n" +
-            "APP_ID = \"your_appid\"\n" +
-            "APP_KEY = \"your_aptikey\"")
-
+    outputFile.writeText(
+                "# Get your API Key and APP ID from here:\n" +
+                    "# https://developer.edamam.com/food-database-api\n" +
+                    "APP_ID = \"your_appid\"\n" +
+                    "APP_KEY = \"your_aptikey\""
+    )
     println("API Secrets file generated in: ${outputFile.absolutePath}")
 }
