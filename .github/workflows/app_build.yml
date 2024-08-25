@@ -24,22 +24,18 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-
-      - name: Create API secrets file
-        run: |
-            echo "# Get your API Key and APP ID from here:" > api_secrets.properties
-            echo "# https://developer.edamam.com/food-database-api" >> api_secrets.properties
-            echo "APP_ID = \"your_appid\"" >> api_secrets.properties
-            echo "APP_KEY = \"your_apikey\"" >> api_secrets.properties
+          
+      - name: Grant execute permissions for gradlew
+        run: chmod +x gradlew
+        
+      - name: Run Gradlew Init task
+        run: ./gradlew init
 
       - name: Replace API secrets in properties file
         run: |
           sed -i 's/your_appid/${{ secrets.APP_ID }}/' api_secrets.properties
           sed -i 's/your_apikey/${{ secrets.APP_KEY }}/' api_secrets.properties
-
-      - name: Grant execute permissions for gradlew
-        run: chmod +x gradlew
-
+        
       - name: Build with Gradle
         run : ./gradlew build
 
