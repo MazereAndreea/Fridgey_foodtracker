@@ -15,7 +15,7 @@ if (outputFile.exists()) {
                 "# Get your API Key and APP ID from here:\n" +
                     "# https://developer.edamam.com/food-database-api\n" +
                     "APP_ID = \"your_appid\"\n" +
-                    "APP_KEY = \"your_aptikey\""
+                    "APP_KEY = \"your_apikey\""
     )
     println("API Secrets file generated in: ${outputFile.absolutePath}")
 }
