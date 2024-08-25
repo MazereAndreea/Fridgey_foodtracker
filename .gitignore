@@ -21,4 +21,3 @@ local.properties
 /.idea/uiDesigner.xml
 /qodana.yaml
 api_secrets.properties
-*.properties

@@ -34,8 +34,6 @@ android {
         debug {
             manifestPlaceholders["app_name"] = "@string/app_name_debug"
             applicationIdSuffix = ".debug"
-            isMinifyEnabled = true
-            isShrinkResources = true
         }
         release {
             manifestPlaceholders["app_name"] = "@string/app_name_release"
