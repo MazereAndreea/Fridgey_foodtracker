@@ -24,7 +24,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-
+          
+      - name: Grant execute permissions for gradlew
+        run: chmod +x gradlew
+        
       - name: Run Gradlew Init task
         run: ./gradlew init
 
@@ -32,10 +35,7 @@ jobs:
         run: |
           sed -i 's/your_appid/${{ secrets.APP_ID }}/' api_secrets.properties
           sed -i 's/your_apikey/${{ secrets.APP_KEY }}/' api_secrets.properties
-
-      - name: Grant execute permissions for gradlew
-        run: chmod +x gradlew
-
+        
       - name: Build with Gradle
         run : ./gradlew build
 
