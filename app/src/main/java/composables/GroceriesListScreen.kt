@@ -35,14 +35,7 @@ fun SimpleDockedSearchBar(navController: NavHostController) {
     var isClicked by remember { mutableStateOf(false) }
     var apiFoodResponded by remember { mutableStateOf(false) }
 
-    FridgeyScaffold(navController = navController, title = "Search your item", true) {
-
-        Text(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
-            textAlign = TextAlign.Center,
-            text = "Welcome to SearchBarActivity"
-        )
-        
+    FridgeyScaffold(navController = navController, title = "Search your item", false) {
         Column(
             modifier = Modifier.padding(vertical = 65.dp),
             verticalArrangement = Arrangement.Top,

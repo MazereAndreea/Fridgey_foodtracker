@@ -20,7 +20,7 @@ fun ModifyGroceriesScreen(navController: NavHostController) {
     var apiResponse by remember { mutableStateOf("") }
     var apiResponded by remember { mutableStateOf(false) }
 
-    FridgeyScaffold(navController = navController, title = "Grocery List", true) {
+    FridgeyScaffold(navController = navController, title = "Grocery List", false) {
 
         Column(
             modifier = Modifier
