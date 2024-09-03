@@ -9,6 +9,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
@@ -18,22 +19,24 @@ import androidx.navigation.NavHostController
 fun SimpleDockedSearchBar(navController: NavHostController) {
     var text by remember { mutableStateOf("") }
     var active by remember { mutableStateOf(false) }
-    val listToSeeFunctionality = mutableListOf<String>("Cartof dulce", "ceapa", "masline", "magiun", "mamaliga")
+    val listToSeeFunctionality = remember { mutableListOf<String>("Cartof dulce", "ceapa", "masline", "magiun", "mamaliga") }
 
     Scaffold(
         modifier = Modifier,
         topBar = {
-            TextField(
-                value = "Enter something",
-                onValueChange = { text = it },
-                colors = TextFieldDefaults.colors(
-                    unfocusedContainerColor = androidx.compose.ui.graphics.Color.White,
-                    focusedContainerColor = androidx.compose.ui.graphics.Color.White
-                ),
+            SearchBar(
+                query = "",
+                onQueryChange = { text = it },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(24.dp)
-                    .border(BorderStroke(2.dp, androidx.compose.ui.graphics.Color.Cyan), shape = CircleShape)
+                    .padding(24.dp),
+                active = active,
+                onActiveChange = {active = it},
+                onSearch = {active = false},
+                content = {},
+                placeholder = {
+                    Text(text = "Enter or edit groceries")
+                }
             )
         },
         bottomBar = {
