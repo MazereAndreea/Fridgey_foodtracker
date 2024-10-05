@@ -1,17 +1,16 @@
-package com.example.fridgey.database
+package com.example.fridgey.database.groceries
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
 
-// TODO: Make a DAO ( Data Access Object) for the database
-@Entity(tableName = "food_table")
-data class TextItem(
+@Entity(tableName = "groceries_table")
+data class ItemGrocery(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val itemName: String,
     val itemDescription: String,
     val itemImage: ByteArray,
-    val expireDate: Date,
+    val expireDate: Int /*Date*/,
     val quantity : Int,
     val category: String
 )
